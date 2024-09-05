@@ -1,0 +1,16 @@
+﻿@page "/login"
+
+@using Microsoft.AspNetCore.Components.Forms
+
+<MudText Typo="Typo.h5">Login</MudText>
+
+<EditForm Model="_loginModel" OnValidSubmit="TryLogin">
+    <div class="d-flex flex-column">
+        <DataAnnotationsValidator />
+        <MudTextField Label="Username" @bind-Value="_loginModel.UserName" Required="true" Variant="Variant.Outlined" />
+        <MudTextField Label="Password" @bind-Value="_loginModel.Password" Required="true" Variant="Variant.Outlined" InputType="InputType.Password" />
+        <MudCheckBox T="bool" Label="Remember me" @bind-Value="_loginModel.Remember" />
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Login</MudButton>
+    </div>
+</EditForm>
+
