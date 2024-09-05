@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5855871A-E3F6-4143-B801-CF462AD1DD62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{52468700-43CC-433F-BF34-97EBF682A132}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4A6FEF84-05F2-4A01-9951-3D18DF25CCB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{7DBFBB11-0DAF-4708-AE20-7BE1E5131C3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{D05AD5A9-4B1C-4303-8B19-3B193D3EEFF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{2AEFA757-6F0E-4D34-AB5E-C9853640A76A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "module", "module", "{C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Web", "src\apps\QualiFlow.Web\QualiFlow.Web\QualiFlow.Web.csproj", "{8A4D556A-4D17-426A-B745-D5F413CBA2D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Web.Client", "src\apps\QualiFlow.Web\QualiFlow.Web.Client\QualiFlow.Web.Client.csproj", "{D43AD809-3EFC-4924-B4AD-25447C155D90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorADO.Auth.Shared", "src\common\BlazorADO.Auth.Shared\BlazorADO.Auth.Shared.csproj", "{CFF550FA-C160-4605-80C8-9204F9FCB995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorADO.Auth.Component", "src\common\BlazorADO.Auth.Component\BlazorADO.Auth.Component.csproj", "{73F7B733-8FB1-40EC-8902-A003478B1ECA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A4D556A-4D17-426A-B745-D5F413CBA2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4D556A-4D17-426A-B745-D5F413CBA2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4D556A-4D17-426A-B745-D5F413CBA2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4D556A-4D17-426A-B745-D5F413CBA2D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D43AD809-3EFC-4924-B4AD-25447C155D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D43AD809-3EFC-4924-B4AD-25447C155D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D43AD809-3EFC-4924-B4AD-25447C155D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D43AD809-3EFC-4924-B4AD-25447C155D90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF550FA-C160-4605-80C8-9204F9FCB995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF550FA-C160-4605-80C8-9204F9FCB995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF550FA-C160-4605-80C8-9204F9FCB995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF550FA-C160-4605-80C8-9204F9FCB995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F7B733-8FB1-40EC-8902-A003478B1ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F7B733-8FB1-40EC-8902-A003478B1ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F7B733-8FB1-40EC-8902-A003478B1ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F7B733-8FB1-40EC-8902-A003478B1ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DBFBB11-0DAF-4708-AE20-7BE1E5131C3A} = {52468700-43CC-433F-BF34-97EBF682A132}
+		{D05AD5A9-4B1C-4303-8B19-3B193D3EEFF6} = {52468700-43CC-433F-BF34-97EBF682A132}
+		{2AEFA757-6F0E-4D34-AB5E-C9853640A76A} = {52468700-43CC-433F-BF34-97EBF682A132}
+		{C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D} = {52468700-43CC-433F-BF34-97EBF682A132}
+		{8A4D556A-4D17-426A-B745-D5F413CBA2D3} = {7DBFBB11-0DAF-4708-AE20-7BE1E5131C3A}
+		{D43AD809-3EFC-4924-B4AD-25447C155D90} = {7DBFBB11-0DAF-4708-AE20-7BE1E5131C3A}
+		{CFF550FA-C160-4605-80C8-9204F9FCB995} = {2AEFA757-6F0E-4D34-AB5E-C9853640A76A}
+		{73F7B733-8FB1-40EC-8902-A003478B1ECA} = {2AEFA757-6F0E-4D34-AB5E-C9853640A76A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2BC3EC0-F5E6-46FF-B850-8DF6AD026878}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,59 @@
+﻿@page "/login"
+@page "/login/{RegisterRedirect:bool}"
+@rendermode InteractiveWebAssembly
+
+@using Microsoft.AspNetCore.Components.Authorization
+
+@inject NavigationManager _navigationManager
+@inject AuthenticationStateProvider _authenticationStateProvider
+@inject ILoginViewModel _loginViewModel
+@inject Services.IAccessTokenService _accessTokenService
+
+<EditForm Model="@_loginViewModel" OnValidSubmit="AuthenticateJWT">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="p-2">
+        <input class="form-control" type="text" @bind="_loginViewModel.EmailAddress" placeholder="email address" />
+    </div>
+    <div class="p-2">
+        <input class="form-control" type="password" @bind="_loginViewModel.Password" placeholder="password" />
+    </div>
+    <div class="p-2">
+        <button class="btn btn-warning" type="submit">Login</button>
+    </div>
+</EditForm>
+
+<div>@UserName</div>
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthenticationState { get; set; } = null!;
+
+    [Parameter]
+    public bool RegisterRedirect { get; set; }
+
+    private string UserName { get; set; }
+
+    private async Task AuthenticateJWT()
+    {
+        var authenticationResponse = await _loginViewModel.AuthenticateJWT();
+        if (authenticationResponse.Token != string.Empty)
+        {
+            await _accessTokenService.SetAccessTokenAsync("jwt_token", authenticationResponse.Token);
+            await (_authenticationStateProvider as Component.CustomAuthenticationStateProvider).MarkUserAsAuthenticated();
+        }
+        else
+        {
+            //show invalid username or password
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            UserName = authState.User.Identity.Name;
+        }
+    }
+}
