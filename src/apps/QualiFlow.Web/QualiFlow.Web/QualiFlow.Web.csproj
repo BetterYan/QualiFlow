@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\module\QualiFlow.Login.API\QualiFlow.Login.API.csproj" />
+    <ProjectReference Include="..\..\..\module\QualiFlow.EntityFrameworkCore.SqlServer\QualiFlow.EntityFrameworkCore.SqlServer.csproj" />
+    <ProjectReference Include="..\..\..\module\QualiFlow.Identity.API\QualiFlow.Identity.API.csproj" />
     <ProjectReference Include="..\QualiFlow.Web.Client\QualiFlow.Web.Client.csproj" />
   </ItemGroup>
 

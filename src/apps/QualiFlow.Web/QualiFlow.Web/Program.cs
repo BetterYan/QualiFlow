@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using QualiFlow.EntityFrameworkCore.SqlServer;
 using QualiFlow.Web.Client.Extensions;
 using QualiFlow.Web.Components;
 
@@ -10,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:Default"], b => b.MigrationsAssembly("QualiFlow.Web")));
 
 builder.Services.AddQualiFlowServices();
 builder.Services.AddMudServices();
@@ -40,6 +44,6 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(
         typeof(QualiFlow.Web.Client._Imports).Assembly,
-        typeof(QualiFlow.Login.Component._Imports).Assembly
+        typeof(QualiFlow.Identity.Component._Imports).Assembly
         );
 app.Run();

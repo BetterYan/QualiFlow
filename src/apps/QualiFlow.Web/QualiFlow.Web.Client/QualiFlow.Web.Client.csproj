@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\module\QualiFlow.Login.Component\QualiFlow.Login.Component.csproj" />
+    <ProjectReference Include="..\..\..\module\QualiFlow.Identity.Component\QualiFlow.Identity.Component.csproj" />
   </ItemGroup>
 
 </Project>

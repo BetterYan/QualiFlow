@@ -25,11 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorADO.Auth.Shared", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorADO.Auth.Component", "src\common\BlazorADO.Auth.Component\BlazorADO.Auth.Component.csproj", "{73F7B733-8FB1-40EC-8902-A003478B1ECA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Login.API", "src\module\QualiFlow.Login.API\QualiFlow.Login.API.csproj", "{C5A41EBD-62F3-4B40-B7D7-18DCAB66DEDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Identity.API", "src\module\QualiFlow.Identity.API\QualiFlow.Identity.API.csproj", "{C5A41EBD-62F3-4B40-B7D7-18DCAB66DEDE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Login.Component", "src\module\QualiFlow.Login.Component\QualiFlow.Login.Component.csproj", "{AA0B3151-BDE2-4DA1-913F-936E1A4504C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Identity.Core", "src\module\QualiFlow.Identity.Core\QualiFlow.Identity.Core.csproj", "{F7300346-339D-4A07-AF68-31CC236F9975}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Login.Core", "src\module\QualiFlow.Login.Core\QualiFlow.Login.Core.csproj", "{F7300346-339D-4A07-AF68-31CC236F9975}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.EntityFrameworkCore.SqlServer", "src\module\QualiFlow.EntityFrameworkCore.SqlServer\QualiFlow.EntityFrameworkCore.SqlServer.csproj", "{D088EFDF-5B7C-4DC6-9DDE-71F803223FE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QualiFlow.Identity.Component", "src\module\QualiFlow.Identity.Component\QualiFlow.Identity.Component.csproj", "{9403E818-C716-47D0-A777-6DE61C4F06D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,14 +59,18 @@ Global
 		{C5A41EBD-62F3-4B40-B7D7-18DCAB66DEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5A41EBD-62F3-4B40-B7D7-18DCAB66DEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5A41EBD-62F3-4B40-B7D7-18DCAB66DEDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA0B3151-BDE2-4DA1-913F-936E1A4504C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA0B3151-BDE2-4DA1-913F-936E1A4504C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA0B3151-BDE2-4DA1-913F-936E1A4504C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA0B3151-BDE2-4DA1-913F-936E1A4504C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7300346-339D-4A07-AF68-31CC236F9975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7300346-339D-4A07-AF68-31CC236F9975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7300346-339D-4A07-AF68-31CC236F9975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7300346-339D-4A07-AF68-31CC236F9975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D088EFDF-5B7C-4DC6-9DDE-71F803223FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D088EFDF-5B7C-4DC6-9DDE-71F803223FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D088EFDF-5B7C-4DC6-9DDE-71F803223FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D088EFDF-5B7C-4DC6-9DDE-71F803223FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9403E818-C716-47D0-A777-6DE61C4F06D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9403E818-C716-47D0-A777-6DE61C4F06D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9403E818-C716-47D0-A777-6DE61C4F06D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9403E818-C716-47D0-A777-6DE61C4F06D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,8 +85,9 @@ Global
 		{CFF550FA-C160-4605-80C8-9204F9FCB995} = {2AEFA757-6F0E-4D34-AB5E-C9853640A76A}
 		{73F7B733-8FB1-40EC-8902-A003478B1ECA} = {2AEFA757-6F0E-4D34-AB5E-C9853640A76A}
 		{C5A41EBD-62F3-4B40-B7D7-18DCAB66DEDE} = {C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D}
-		{AA0B3151-BDE2-4DA1-913F-936E1A4504C2} = {C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D}
 		{F7300346-339D-4A07-AF68-31CC236F9975} = {C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D}
+		{D088EFDF-5B7C-4DC6-9DDE-71F803223FE0} = {C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D}
+		{9403E818-C716-47D0-A777-6DE61C4F06D1} = {C3B80FA7-3EFB-48AD-BB8E-F0012D67C50D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2BC3EC0-F5E6-46FF-B850-8DF6AD026878}
