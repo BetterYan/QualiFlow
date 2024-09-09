@@ -2,7 +2,7 @@
 
 namespace QualiFlow.Identity.API.Contracts;
 
-internal interface ISecretHasher
+public interface ISecretHasher
 {
     byte[] GenerateSalt(int saltSize = 32);
     HashedSecret HashSecret(string secret);

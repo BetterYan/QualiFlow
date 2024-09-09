@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QualiFlow.Identity.API.Services;
 
-internal class DefaultSecretHasher : ISecretHasher
+public class DefaultSecretHasher : ISecretHasher
 {
     public HashedSecret HashSecret(string secret)
     {

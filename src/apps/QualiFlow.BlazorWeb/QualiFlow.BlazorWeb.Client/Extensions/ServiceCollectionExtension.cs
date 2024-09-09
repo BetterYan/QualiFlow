@@ -1,6 +1,6 @@
 ﻿using QualiFlow.Identity.Component.Extensions;
 
-namespace QualiFlow.Web.Client.Extensions;
+namespace QualiFlow.BlazorWeb.Client.Extensions;
 
 public static class ServiceCollectionExtension
 {

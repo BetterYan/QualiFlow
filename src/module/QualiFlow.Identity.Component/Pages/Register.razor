@@ -1,7 +1,51 @@
 ﻿@page "/register"
 
-<h3>Register</h3>
+@using Microsoft.AspNetCore.Authorization
+@using QualiFlow.Identity.Component.Pages.Models
+@using QualiFlow.Identity.Core.Models
+
+@attribute [AllowAnonymous]
+
+@inject HttpClient httpClient
+@inject ISnackbar snackbar
+@inject NavigationManager navigationManager
+
+<PageTitle>Register</PageTitle>
+
+<MudContainer>
+    <MudStack>
+        <MudGrid>
+            <MudItem>
+                <EditForm Model="_registerModel" OnValidSubmit="TryRegist" FormName="RegisterForm">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary></ValidationSummary>
+                    <MudTextField @bind-Value="_registerModel.UserName" Required="true" Label="Username" Variant="Variant.Filled"></MudTextField>
+                    <MudTextField @bind-Value="_registerModel.Password" Required="true" Label="Password" Variant="Variant.Filled" InputType="InputType.Password"></MudTextField>
+                    <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled">Regist</MudButton>
+                </EditForm>
+            </MudItem>
+        </MudGrid>
+    </MudStack>
+</MudContainer>
 
 @code {
+    readonly RegisterModel _registerModel = new();
 
+    private async Task TryRegist()
+    {
+        var request = new RegisterRequest(_registerModel.UserName, _registerModel.Password);
+
+        var resp = await httpClient.PostAsJsonAsync(navigationManager.BaseUri + "api/v1/Identity/User", request);
+
+        if (resp.IsSuccessStatusCode)
+        {
+            Console.WriteLine("Success");
+            snackbar.Add("Success", Severity.Success);
+        }
+        else
+        {
+            Console.WriteLine("Failure");
+            snackbar.Add("Failure", Severity.Error);
+        }
+    }
 }

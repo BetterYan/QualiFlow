@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
@@ -17,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\module\QualiFlow.EntityFrameworkCore.SqlServer\QualiFlow.EntityFrameworkCore.SqlServer.csproj" />
     <ProjectReference Include="..\..\..\module\QualiFlow.Identity.API\QualiFlow.Identity.API.csproj" />
+    <ProjectReference Include="..\QualiFlow.BlazorWeb.Client\QualiFlow.BlazorWeb.Client.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace QualiFlow.Identity.API.Models;
 
-internal record HashedSecret(byte[] Secret, byte[] Salt)
+public record HashedSecret(byte[] Secret, byte[] Salt)
 {
     public static HashedSecret FromBytes(byte[] Secret, byte[] salt) => new HashedSecret(Secret, salt);
     public static HashedSecret FromString(string secret, string salt) => new(Decode(secret), Decode(salt));

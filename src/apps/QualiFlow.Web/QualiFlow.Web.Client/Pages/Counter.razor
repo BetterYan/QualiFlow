@@ -1,6 +1,9 @@
 ﻿@page "/counter"
 @rendermode InteractiveAuto
 
+@inject ISnackbar snackbar
+@inject IDialogService DialogService
+
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -9,11 +12,30 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<button class="btn btn-info" @onclick="ShowSnackBar">Show</button>
+
+<MudButton @onclick="OpenDialogAsync" Variant="Variant.Filled" Color="Color.Primary">
+    Open Simple Dialog
+</MudButton>
+
 @code {
     private int currentCount = 0;
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    private void ShowSnackBar() 
+    {
+        Console.WriteLine("ShowSnackBar");
+        snackbar.Add("ShowSnackBar", Severity.Success);
+    }
+
+    private Task OpenDialogAsync()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+
+        return DialogService.ShowAsync<DialogUsageExample_Dialog>("Simple Dialog", options);
     }
 }
