@@ -9,6 +9,8 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddQualiFlowIdentityApiServices(this IServiceCollection services)
     {
         services.AddSingleton<ISecretHasher, DefaultSecretHasher>();
+        services.AddScoped<IAccessTokenIssuer, DefaultAccessTokenIssuer>();
+        services.AddScoped<IUserCredentialsValidator, DefaultUserCredentialsValidator>();
         return services;
     }
 }

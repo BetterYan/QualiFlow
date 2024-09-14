@@ -1,5 +1,19 @@
 ﻿@page "/login"
-@rendermode InteractiveAuto
+
+@using Microsoft.AspNetCore.Components.Authorization
+@using QualiFlow.Identity.Component.Contracts
+@using QualiFlow.Identity.Component.Pages.Models
+@using QualiFlow.Identity.Component.Services
+@using QualiFlow.Identity.Core
+@using QualiFlow.Identity.Core.Models
+
+@attribute [AllowAnonymous]
+
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject HttpClient httpClient
+@inject IJwtAccessor JwtAccessor
+@inject ISnackbar Snackbar
 
 <MudText Typo="Typo.h5">Login</MudText>
 
@@ -13,3 +27,39 @@
     </div>
 </EditForm>
 
+@code {
+    private readonly LoginModel _loginModel = new LoginModel();
+
+    private async Task TryLogin()
+    {
+        var isValid = await ValidateCredentials(_loginModel.UserName, _loginModel.Password);
+        if (!isValid)
+        {
+            Snackbar.Add("Invalid credentials. Please try again", Severity.Error);
+            return;
+        }
+
+        ((AccessTokenAuthenticationStateProvider)AuthenticationStateProvider).NotifyAuthenticationStateChanged();
+        NavigationManager.NavigateTo("", true);
+    }
+
+    private async Task<bool> ValidateCredentials(string username, string password)
+    {
+        if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
+            return false;
+        var resp = await httpClient.PostAsJsonAsync(NavigationManager.BaseUri + "api/v1/Identity/Login", new LoginRequest(username, password));
+
+        if (!resp.IsSuccessStatusCode)
+        {
+            return false;
+        }
+        var result = await resp.Content.ReadFromJsonAsync<LoginResponse>();
+
+        if (!result.IsAuthenticated)
+            return false;
+
+        await JwtAccessor.WriteTokenAsync(TokenNames.AccessToken, result.AccessToken!);
+        await JwtAccessor.WriteTokenAsync(TokenNames.RefreshToken, result.RefreshToken!);
+        return true;
+    }
+}

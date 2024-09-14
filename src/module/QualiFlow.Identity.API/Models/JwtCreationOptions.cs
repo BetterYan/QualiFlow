@@ -55,12 +55,12 @@ public sealed class JwtCreationOptions
     /// <summary>
     /// the value for the 'audience' claim.
     /// </summary>
-    public string? Audience { get; set; }
+    public string Audience { get; set; }
 
     /// <summary>
     /// the issuer
     /// </summary>
-    public string? Issuer { get; set; }
+    public string Issuer { get; set; }
 
     /// <summary>
     /// the value of the 'expiration' claim. should be in utc.
@@ -70,5 +70,5 @@ public sealed class JwtCreationOptions
     /// <summary>
     /// the compression algorithm  compressing the token payload.
     /// </summary>
-    public string? CompressionAlgorithm { get; set; }
+    public string CompressionAlgorithm { get; set; }
 }
