@@ -3,8 +3,10 @@ using MudBlazor.Services;
 using QualiFlow.BlazorWeb.Components;
 using QualiFlow.EntityFrameworkCore.SqlServer;
 using QualiFlow.Identity.API.Extensions;
+using QualiFlow.Identity.API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add MudBlazor services
 builder.Services.AddMudServices();
@@ -14,6 +16,7 @@ builder.Services.AddControllers();
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddOptions<JwtCreationOptions>().Configure(options => configuration.GetSection("JwtCreationOptions").Bind(options));
 builder.Services.AddQualiFlowIdentityApiServices();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:Default"], b => b.MigrationsAssembly("QualiFlow.BlazorWeb")));

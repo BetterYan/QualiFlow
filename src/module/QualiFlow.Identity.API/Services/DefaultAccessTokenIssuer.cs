@@ -21,8 +21,10 @@ public class DefaultAccessTokenIssuer : IAccessTokenIssuer
     {
         var nameClaim = new Claim("Name", user.Name);
         var claims = new List<Claim> { nameClaim };
-        var accessToken = JwtBearer.CreateToken(new JwtCreationOptions());
-        var refreshToken = JwtBearer.CreateToken(new JwtCreationOptions());
+        _jwtCreationOptions.User = new UserPrivileges { Claims = claims };
+        _jwtCreationOptions.ExpireAt = DateTime.UtcNow.AddHours(2);
+        var accessToken = JwtBearer.CreateToken(_jwtCreationOptions);
+        var refreshToken = JwtBearer.CreateToken(_jwtCreationOptions);
         return new IssuedTokens(accessToken, refreshToken);
     }
 }

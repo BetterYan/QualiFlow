@@ -15,7 +15,7 @@ public sealed class UserPrivileges
     /// <summary>
     /// claims of the user
     /// </summary>
-    public List<Claim> Claims { get; } = [];
+    public List<Claim> Claims { get; set; } = [];
 
     /// <summary>
     /// roles of the user

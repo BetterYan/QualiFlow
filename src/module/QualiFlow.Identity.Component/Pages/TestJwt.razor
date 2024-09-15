@@ -1,0 +1,26 @@
+﻿@page "/TestJwt"
+
+@using QualiFlow.Identity.Component.Contracts
+@using QualiFlow.Identity.Core
+
+@inject IJwtParser JwtParser
+@inject IJwtAccessor JwtAccessor
+
+<h3>TestJwt</h3>
+<MudButton Variant="Variant.Filled" OnClick="ParseJwt">Parse</MudButton>
+
+@code {
+    private async Task ParseJwt()
+    {
+        var token = await JwtAccessor.ReadTokenAsync(TokenNames.RefreshToken);
+        var data = JwtParser.Parse(token);
+        foreach (var item in data)
+        {
+            Console.WriteLine(item.OriginalIssuer);
+            Console.WriteLine(item.Value);
+            Console.WriteLine(item.Issuer);
+            Console.WriteLine(item.Subject);
+            Console.WriteLine("---------");
+        }
+    }
+}

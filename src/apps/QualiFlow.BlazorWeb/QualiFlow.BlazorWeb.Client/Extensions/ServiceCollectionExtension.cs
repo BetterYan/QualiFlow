@@ -7,7 +7,6 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddQualiFlowServices(this IServiceCollection services)
     {
         services.AddOptions();
-        services.AddQualiFlowIdentityComponent();
         return services;
     }
 }

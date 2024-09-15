@@ -11,9 +11,9 @@
 
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
-@inject HttpClient httpClient
 @inject IJwtAccessor JwtAccessor
 @inject ISnackbar Snackbar
+@inject IHttpClientFactory httpClientFactory
 
 <MudText Typo="Typo.h5">Login</MudText>
 
@@ -47,6 +47,7 @@
     {
         if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
             return false;
+        using var httpClient = httpClientFactory.CreateClient("normal");
         var resp = await httpClient.PostAsJsonAsync(NavigationManager.BaseUri + "api/v1/Identity/Login", new LoginRequest(username, password));
 
         if (!resp.IsSuccessStatusCode)

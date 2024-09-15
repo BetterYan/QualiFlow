@@ -50,7 +50,7 @@ public sealed class JwtCreationOptions
     /// <summary>
     /// specify the privileges of the user
     /// </summary>
-    public UserPrivileges User { get; } = new();
+    public UserPrivileges User { get; set; } = new();
 
     /// <summary>
     /// the value for the 'audience' claim.

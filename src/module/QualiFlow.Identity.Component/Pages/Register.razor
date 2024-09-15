@@ -6,8 +6,8 @@
 
 @attribute [AllowAnonymous]
 
-@inject HttpClient httpClient
 @inject ISnackbar snackbar
+@inject IHttpClientFactory httpClientFactory
 @inject NavigationManager navigationManager
 
 <PageTitle>Register</PageTitle>
@@ -35,6 +35,7 @@
     {
         var request = new RegisterRequest(_registerModel.UserName, _registerModel.Password);
 
+        using var httpClient = httpClientFactory.CreateClient("normal");
         var resp = await httpClient.PostAsJsonAsync(navigationManager.BaseUri + "api/v1/Identity/User", request);
 
         if (resp.IsSuccessStatusCode)
