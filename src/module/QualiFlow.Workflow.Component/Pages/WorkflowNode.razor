@@ -1,0 +1,26 @@
+@page "/workflowNode"
+
+@inject NavigationManager NavigationManager
+
+<div class="container mt-4">
+    <h1>Workflow Definition</h1>
+    <MudForm>
+        <MudTextField Label="Workflow Name" For="@(() => workflowName)" />
+        <MudTextField Label="Description" Multiline For="@(() => workflowDescription)" />
+       
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SaveWorkflow">Save</MudButton>
+    </MudForm>
+</div>
+
+@code {
+    private string workflowName;
+    private string workflowDescription;
+
+    private async Task SaveWorkflow()
+    {
+        // Implement your workflow saving logic here
+        // For example, you can send a POST request to an API to save the workflow
+        // After saving, you can navigate to the workflow list page or another page
+        NavigationManager.NavigateTo("/workflowList");
+    }
+}
